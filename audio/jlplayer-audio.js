@@ -40,10 +40,7 @@
         }
 
         function canPlay(evt) {
-
-            console.log(evt.currentTarget.duration)
             handler(progress.range, 'mousedown mouseup mousemove', setSeeker)
-
             // handler(controls.play, 'click', () => {
             //     states.played = play()
             // });
@@ -96,7 +93,6 @@
         }
 
         function bufferProgress(evt) {
-
             if (evt.currentTarget.duration > 0) {
                 for (let i = 0; i < evt.currentTarget.buffered.length; i++) {
                     if (evt.currentTarget.buffered.start(evt.currentTarget.buffered.length - 1 - i) < evt.currentTarget.currentTime) {
@@ -130,8 +126,6 @@
         handler(audio, 'canplay', canPlay)
         handler(audio, 'timeupdate', timeUpdate)
         handler(audio, 'progress', bufferProgress)
-
-
 
         if (audio.preload == 'none') {
             handler(controls.play, 'click', () => {
